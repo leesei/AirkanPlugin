@@ -1,5 +1,5 @@
-AirkanPlugin Ã×ÁªÍ¶ÉäÖúÊÖ
+AirkanPlugin ç±³è”æŠ•å°„åŠ©æ‰‹
 ============
-Ã×ÁªÍ¶ÉäÖúÊÖÊÇ¸öÕë¶ÔĞ¡Ã×ºĞ×ÓºÍĞ¡Ã×µçÊÓÍ¶ÉäÍøÒ³ÉÏÊÓÆµµÄChrome²å¼ş¡£
-Ä¿Ç°Ö÷ÒªÖ§³ÖYouku, sohu, ku6.
-Ò²Ö§³Ödouban.fmÕâÑùµÄÒôÀÖÍøÕ¾¡£
+>forked from [iLibra/AirkanPlugin](https://github.com/iLibra/AirkanPlugin)
+
+ç±³è”æŠ•å°„åŠ©æ‰‹æ˜¯ä¸ªé’ˆå¯¹å°ç±³ç›’å­å’Œå°ç±³ç”µè§†æŠ•å°„ç½‘é¡µä¸Šè§†é¢‘çš„Chromeæ’ä»¶ã€‚ç›®å‰ä¸»è¦æ”¯æŒYouku, sohu, ku6. ä¹Ÿæ”¯æŒdouban.fmè¿™æ ·çš„éŸ³ä¹ç½‘ç«™ã€‚
