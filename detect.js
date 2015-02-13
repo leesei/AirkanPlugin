@@ -16,6 +16,7 @@ function enumLocalIPs(cb) {
   function grepSDP(sdp) {
     var hosts = [];
     sdp.split('\r\n').forEach(function(line) {
+      console.log(line);
       if (~line.indexOf('a=candidate')) {
         var parts = line.split(' '),
           addr = parts[4],
@@ -31,13 +32,17 @@ function enumLocalIPs(cb) {
   var rtc = new RTCPeerConnection({
     iceServers: []
   });
-  if (window.mozRTCPeerConnection) rtc.createDataChannel('', {
-    reliable: false
-  });
+  if (window.mozRTCPeerConnection) {
+    rtc.createDataChannel('', {
+      reliable: false
+    });
+  }
   rtc.onicecandidate = function(evt) {
+    console.log('ice candidate: ', evt);
     if (evt.candidate) grepSDP(evt.candidate.candidate);
   };
   setTimeout(function() {
+    console.log('createOffer()');
     rtc.createOffer(function(offerDesc) {
       grepSDP(offerDesc.sdp);
       rtc.setLocalDescription(offerDesc);

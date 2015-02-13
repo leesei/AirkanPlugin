@@ -1,0 +1,166 @@
+﻿<style type="text/css">
+	html{height:100%;}
+	body{
+		max-width:215px;
+		min-width:215px;
+		margin:0px;
+		padding:0;
+		position:relative;
+		height:auto !important;
+		height:100%;
+		min-height:100%;
+		text-align:center;
+	}
+	h4{
+		color:blue;
+		font-size: 14px;
+		display: inline;
+	}
+	.mylist {
+		padding:0px;
+		text-align: center;
+		cursor: default;
+
+		margin-bottom: 10px;
+		font-size: 12px;
+		/*border-collapse: collapse;*/
+		width: 100%;
+	}
+	.mylist tr{
+	}
+	.mylist td{
+		padding: 0px;
+
+		vertical-align:middle;
+		word-wrap:break-word; overflow:hidden;
+		/*word-break:break-all;*/
+		border-top-width: 1px;
+		border-right-width: 1px;
+		border-bottom-width: 1px;
+		border-left-width: 1px;
+
+		border-top-style: solid white;
+		border-right-style: solid white;
+		border-bottom-style: solid white;
+		border-left-style: solid white;
+		width: 95%;
+	}
+	.title{
+		font-family: "Microsoft YaHei","微软雅黑", helvetica, arial, verdana, tahoma, sans-serif;
+		text-align: center;
+		font-size: 16px;
+		height: 25px;
+		padding-top: 5px;
+	}
+	.refresh1{
+		font-family: "Microsoft YaHei","微软雅黑", helvetica, arial, verdana, tahoma, sans-serif;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 15px;
+		background-color: #EAEAEA;
+		height: 38px;
+		line-height: 38px;
+		width: 212px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		width:100%;
+
+	}
+	.refresh{
+		font-family: "Microsoft YaHei","微软雅黑", helvetica, arial, verdana, tahoma, sans-serif;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 15px;
+		background-color: #EAEAEA;
+		height: 38px;
+		line-height: 38px;
+		width: 212px;
+		border-top-style: none;
+		border-right-style: none;
+		border-bottom-style: none;
+		border-left-style: none;
+		position:absolute;
+		width:100%;
+		clear:both;
+		bottom:0;
+		left:0;
+	}
+	.select{
+		border-top-width: 1px;
+		border-right-width: 1px;
+		border-bottom-width: 1px;
+		border-left-width: 1px;
+		border-top-style: solid;
+		border-right-style: solid;
+		border-bottom-style: solid;
+		border-left-style: solid;
+	}
+
+	.devicename{
+		font-family: "Microsoft YaHei","微软雅黑", helvetica, arial, verdana, tahoma, sans-serif;
+		font-size: 14px;
+		text-align: left;
+		margin: 0 5px;
+		height: 20px;
+		line-height: 20px;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	.ip{
+		color:gray;
+		font-family: "Microsoft YaHei","微软雅黑", helvetica, arial, verdana, tahoma, sans-serif;
+		font-size: 14px;
+		text-align: left;
+		margin: 0 5px;
+		height: 20px;
+		line-height: 20px;
+		word-break:break-all;
+		word-wrap:break-word;
+	}
+
+	.deviceIcon{
+		float: left;
+		max-width: 40px;
+		width: 40px;
+		padding-left: 15px;
+		padding-right: 5px;
+
+	}
+	.testNormal {
+		border:0px;
+	}
+	.testOver {
+		border:1px solid gray;
+		padding-top: 5px;
+		padding-bottom:5px;
+		border-radius: 3px;
+		min-width: 200px;
+		/*font-weight:bold; */
+	}
+	.trText{
+		min-width: 150px;
+
+	}
+</style>
+
+<table id="devicetable" class="mylist" align="center">
+	<thead><tr>
+
+	</tr></thead>
+	<tbody id="devicelist">
+		<tr class="testNormal">
+			<td>
+				<div class="testOver">
+					<div>
+						<img src="Box.png" class="deviceIcon">
+					</div>
+					<div class="trText">
+						<div class="devicename">会议室的小米盒子</div>
+						<div class="ip">192.168.0.102</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>

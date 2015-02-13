@@ -2,6 +2,7 @@
 var mediaurls = []; //示例:mediaurls["tabid6"]=[{name:"aa",url:"sd",size:"0.12MB"},{name:"bb",url:"sdf",size:"1.32MB"}];
 var hasm3u8 = ["false"];
 var currenDeviceIndex = -1;
+var doDiscoverOnce = false;
 chrome.webRequest.onResponseStarted.addListener(
   function(data) {
     //console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
@@ -257,16 +258,38 @@ function getKu6List(tabid, title, url) {
   }
 }
 
+function getLeTVList(tabid,title,url)
+{
+    url2="http://www.flvcd.com/parse.php?kw="+encodeURIComponent(url)+"&flag=one&format=super";
+    $.get(url2,function(data){
+        console.log("get vid");
+        var re=data.match(/var clipurl = \"([^\"]+)\"/i);
+        if (re)
+        {
+          console.log("vid url is "+ re[1]);
+          url = re[1];
+          size = 0;
+          addUrl(tabid,title,url,size);
+        }
+  });
+}
+
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo) {
   if (changeInfo.status == "loading") //在载入之前清除之前记录
   {
     var id = "tabid" + tabId; //记录当前请求所属标签的id
-    device_list = []; //清除设备列表
+    // device_list = []; //清除设备列表
     if (mediaurls[id]) {
       mediaurls[id] = [];
       chrome.browserAction.setIcon({
         path: "19_2.png"
       });
+    }
+    if (doDiscoverOnce === false)
+    {
+      console.log("Discover for 1st time");
+      updateDeviceList();
+      doDiscoverOnce = true;
     }
   }
   chrome.tabs.query({
@@ -300,7 +323,26 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo) {
       updateDeviceList();
       getKu6List(tabId, "Ku6", tabs[0].url);
     }
-    console.log("No Match");
+    else if (tabs[0].url.match(/www.letv.com\/ptv\/vplay\/.*?/))
+    {
+      console.log(tabs[0].url);
+      console.log("It's LeTV Video");
+        updateDeviceList();
+      getLeTVList(tabId,"LeTV",tabs[0].url);
+    }
+    // else // match custom urls, not working
+    // {
+    //   console.log(url_list);
+    //   for (var i in url_list)
+    //   {
+    //     if (tabs[0].url.match(new RegExp(url_list[i])))
+    //     {
+    //       console.log(tabs[0].url+" match "+url_list[i]);
+    //       addUrl(tabId,"Browser",tabs[0].url,0);
+    //     }
+    //   }
+    // }
+    console.log("No Match for " + tabs[0].url);
   });
 });
 
